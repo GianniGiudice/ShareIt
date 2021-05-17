@@ -28,6 +28,7 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
 
         firebaseAuthStateListener = (FirebaseAuth.AuthStateListener {
+            @Override
             fun onAuthStateChanged(firebaseAuth: FirebaseAuth) {
                 val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser;
                 if (user != null) {
@@ -36,6 +37,7 @@ class RegistrationActivity : AppCompatActivity() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
+                    return;
                 }
             }
         })
@@ -46,19 +48,24 @@ class RegistrationActivity : AppCompatActivity() {
         emailInput = findViewById(R.id.email);
         passwordInput = findViewById(R.id.password);
 
-        regButton.setOnClickListener(View.OnClickListener {
-            fun onClick(view: View) {
-                val name: String = nameInput.text.toString();
-                val email: String = emailInput.text.toString();
-                val password: String = passwordInput.text.toString();
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, OnCompleteListener<AuthResult> {
+        regButton.setOnClickListener {
+            val name: String = nameInput.text.toString();
+            val email: String = emailInput.text.toString();
+            val password: String = passwordInput.text.toString();
+            mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, OnCompleteListener<AuthResult> {
                     fun onComplete(task: Task<AuthResult>) {
                         if (!task.isSuccessful) {
-                            Toast.makeText(baseContext, "Identifiants incorrects.", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                            Toast.makeText(
+                                baseContext,
+                                "Identifiants incorrects.",
+                                Toast.LENGTH_SHORT
+                            ).show();
+                        } else {
                             val userId: String = mAuth.currentUser?.uid ?: String();
-                            val currentUserDb: DatabaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(userId);
+                            val currentUserDb: DatabaseReference =
+                                FirebaseDatabase.getInstance().getReference().child("users")
+                                    .child(userId);
                             val userInfo: MutableMap<String, Any> = HashMap<String, Any>();
 
                             userInfo.put("name", name);
@@ -69,8 +76,8 @@ class RegistrationActivity : AppCompatActivity() {
                         }
                     }
                 })
-            }
-        })
+        }
+
     }
 
     override fun onStart() {

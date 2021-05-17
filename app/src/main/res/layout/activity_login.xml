@@ -11,18 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email"
-        android:hint="Email"/>
+        android:hint="@string/email"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/password"
-        android:hint="Mot de passe"/>
+        android:hint="@string/mot_de_passe"/>
     
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connexion"
+        android:text="@string/connexion"
         android:id="@+id/login"/>
     
 </LinearLayout>
