@@ -1,13 +1,13 @@
 package com.example.shareit
 
 import android.content.Intent
+import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -53,31 +53,31 @@ class RegistrationActivity : AppCompatActivity() {
             val email: String = emailInput.text.toString();
             val password: String = passwordInput.text.toString();
             mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, OnCompleteListener<AuthResult> {
-                    fun onComplete(task: Task<AuthResult>) {
-                        if (!task.isSuccessful) {
-                            Toast.makeText(
-                                baseContext,
-                                "Identifiants incorrects.",
-                                Toast.LENGTH_SHORT
-                            ).show();
-                        } else {
-                            val userId: String = mAuth.currentUser?.uid ?: String();
-                            val currentUserDb: DatabaseReference =
-                                FirebaseDatabase.getInstance().getReference().child("users")
-                                    .child(userId);
-                            val userInfo: MutableMap<String, Any> = HashMap<String, Any>();
+                .addOnCompleteListener(this) { task: Task<AuthResult> ->
+                    if (!task.isSuccessful) {
+                        Toast.makeText(
+                            baseContext,
+                            "Identifiants incorrects.",
+                            Toast.LENGTH_SHORT
+                        ).show();
+                        Log.w("TAG","ERROR LOG", task.exception);
+                    } else {
+                        Log.d("TAG","SUCCESS LOG");
+                        val userId: String = mAuth.currentUser?.uid ?: String();
+                        val currentUserDb: DatabaseReference =
+                            FirebaseDatabase.getInstance().reference.child("users")
+                                .child(userId);
+                        val userInfo: MutableMap<String, Any> = HashMap();
 
-                            userInfo.put("name", name);
-                            userInfo.put("email", email);
-                            userInfo.put("profileImageUrl", "default");
+                        userInfo["name"] = name;
+                        userInfo["email"] = email;
+                        userInfo["profileImageUrl"] = "default";
 
-                            currentUserDb.updateChildren(userInfo);
-                        }
+                        currentUserDb.updateChildren(userInfo);
                     }
-                })
-        }
 
+                }
+        }
     }
 
     override fun onStart() {

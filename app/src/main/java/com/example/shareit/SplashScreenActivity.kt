@@ -2,11 +2,8 @@ package com.example.shareit;
 
 import android.content.Intent
 import android.os.Bundle;
-import android.os.PersistableBundle;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth;
 
 class SplashScreenActivity: AppCompatActivity() {
     // Eléments statics
@@ -17,7 +14,6 @@ class SplashScreenActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
-
         mAuth = FirebaseAuth.getInstance();
 
         /*
