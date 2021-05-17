@@ -1,5 +1,6 @@
 package com.example.shareit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,6 +17,9 @@ class HomeActivity : AppCompatActivity() {
         logButton.setOnClickListener(View.OnClickListener {
             @Override
             fun onClick(view: View) {
+                val intent: Intent = Intent(application, LoginActivity::class.java);
+                startActivity(intent);
+                return;
 
             }
         })
@@ -23,7 +27,9 @@ class HomeActivity : AppCompatActivity() {
         regButton.setOnClickListener(View.OnClickListener {
             @Override
             fun onClick(view: View) {
-
+                val intent: Intent = Intent(application, RegistrationActivity::class.java);
+                startActivity(intent);
+                return;
             }
         })
     }
