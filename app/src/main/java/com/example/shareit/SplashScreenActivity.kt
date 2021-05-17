@@ -13,14 +13,7 @@ class SplashScreenActivity: AppCompatActivity() {
     companion object {
         val started: Boolean = false;
     }
-
-    var mAuth: FirebaseAuth? = null
-        get() {
-            return field;
-        }
-        set(value) {
-            field = value;
-        }
+    lateinit var mAuth: FirebaseAuth;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
@@ -31,7 +24,7 @@ class SplashScreenActivity: AppCompatActivity() {
             Si l'utilisateur est pas connecté, il va sur l'écran d'accueil utilisateur,
             sinon, il va sur la page Home où il peut choisir entre s'inscrire ou se connecter
          */
-        if (mAuth!!.currentUser != null) {
+        if (mAuth.currentUser != null) {
             val intent: Intent = Intent(application, MainActivity::class.java);
 
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
