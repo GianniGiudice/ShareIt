@@ -13,6 +13,7 @@ import com.facebook.login.widget.LoginButton
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import com.squareup.picasso.Picasso
+import com.facebook.FacebookSdk;
 
 class HomeActivity : AppCompatActivity() {
     lateinit var callbackManager: CallbackManager;
@@ -34,6 +35,10 @@ class HomeActivity : AppCompatActivity() {
         loginBtn.setReadPermissions("email", "public_profile");
         mText = findViewById(R.id.home_text);
         mPicture = findViewById(R.id.image_logo);
+
+        if (auth.currentUser != null) {
+            mText.text = auth.currentUser!!.displayName;
+        }
 
         loginBtn.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
@@ -67,6 +72,7 @@ class HomeActivity : AppCompatActivity() {
         accessTokenTraker = object: AccessTokenTracker() {
             override fun onCurrentAccessTokenChanged(oldAT: AccessToken?, currentAT: AccessToken?) {
                 if (currentAT == null) {
+                    updateUI(null);
                     auth.signOut();
                 }
             }
@@ -107,7 +113,7 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    fun updateUI(user: FirebaseUser?) {
+    private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             mText.text = user.displayName;
             if (user.photoUrl != null) {
@@ -117,8 +123,8 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         else {
-            mText.text = "";
-            mPicture.setImageResource(R.drawable.com_facebook_button_icon_white);
+            mText.text = "Bienvenue";
+            mPicture.setImageResource(0);
         }
     }
 

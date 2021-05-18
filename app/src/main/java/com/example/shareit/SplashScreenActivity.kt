@@ -5,11 +5,12 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
-class SplashScreenActivity: AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity() {
     // Eléments statics
     companion object {
         val started: Boolean = false;
     }
+
     lateinit var mAuth: FirebaseAuth;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,22 +21,14 @@ class SplashScreenActivity: AppCompatActivity() {
             Si l'utilisateur est pas connecté, il va sur l'écran d'accueil utilisateur,
             sinon, il va sur la page Home où il peut choisir entre s'inscrire ou se connecter
          */
-        if (mAuth.currentUser != null) {
-            val intent: Intent = Intent(application, MainActivity::class.java);
 
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-            return;
-        }
-        else {
-            val intent: Intent = Intent(application, HomeActivity::class.java);
+        val intent: Intent = Intent(application, HomeActivity::class.java);
 
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            finish();
-            return;
-        }
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+        return;
     }
+
 
 }

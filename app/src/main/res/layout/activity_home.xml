@@ -5,15 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".HomeActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/home_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/salut_tout_le_monde"
+        android:text="Bienvenue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#ffffff"
-        android:id="@+id/home_text"/>
+        android:translationX="10px"
+        android:translationY="10px" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
@@ -27,8 +30,8 @@
         android:id="@+id/image_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/screen_background_dark"
-        android:contentDescription="@string/profile" />
+        android:contentDescription="@string/profile"
+        android:src="@android:drawable/screen_background_dark" />
 
 
 </LinearLayout>
