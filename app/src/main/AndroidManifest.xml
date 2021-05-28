@@ -12,7 +12,8 @@
         <activity android:name=".RegistrationActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SendImageActivity" />
+        <activity android:name=".AppareilPhoto">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,4 +23,8 @@
         <activity android:name=".MainActivity" />
     </application>
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>

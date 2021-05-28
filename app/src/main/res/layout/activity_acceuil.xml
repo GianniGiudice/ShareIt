@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_degrade">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="255dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:text="Photo gallery"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/buttonSendView"
+        android:layout_width="71dp"
+        android:layout_height="69dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/color_press_send_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="450sp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:id="@+id/tr3a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="2.5dp">
+
+                <ImageView
+                    android:id="@+id/imageTest1"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest2"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest3"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tr3a1"
+                android:layout_width="wrap_content"
+                android:layout_height="203dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="2.5dp">
+
+                <ImageView
+                    android:id="@+id/imageTest11"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest21"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest31"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tr3a2"
+                android:layout_width="wrap_content"
+                android:layout_height="203dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="2.5dp">
+
+                <ImageView
+                    android:id="@+id/imageTest112"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest212"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+
+                <ImageView
+                    android:id="@+id/imageTest312"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
