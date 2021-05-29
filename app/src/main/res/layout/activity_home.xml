@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
     tools:context=".HomeActivity">
-    
-    <Button
+
+    <TextView
+        android:id="@+id/home_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#ffffff"
+        android:translationX="10px"
+        android:translationY="10px" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
+
+    <ImageView
+        android:id="@+id/image_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Connexion"
-        android:id="@+id/login"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Inscription"
-        android:id="@+id/registration"
-        tools:ignore="MissingConstraints" />
+        android:contentDescription="@string/profile"
+        android:src="@android:drawable/screen_background_dark" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

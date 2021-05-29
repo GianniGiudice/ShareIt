@@ -2,8 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.ShareIt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#007FAD</item>
-        <item name="colorPrimaryVariant">#007FAD</item>
+
+        <item name="colorPrimary">@color/com_facebook_blue</item>
+        <item name="colorPrimaryVariant">@color/com_facebook_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
