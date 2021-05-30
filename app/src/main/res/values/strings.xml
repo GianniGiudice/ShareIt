@@ -11,11 +11,12 @@
     <string name="salut_tout_le_monde">Salut tout le monde</string>
     <string name="avatar">Avatar</string>
     <string name="profile">profile</string>
-    <string name="choose_file">Choose File</string>
-    <string name="enter_file_name">Enter file name</string>
+    <string name="choose_file">Choisissez un fichier</string>
+    <string name="enter_file_name">Entez un nom</string>
     <string name="show_uploads">Show Uploads</string>
-    <string name="upload">Upload</string>
+    <string name="upload">Télécharger</string>
     <string name="upload_success">Image téléchargée</string>
     <string name="upload_fail">Problème lors du téléchargement</string>
     <string name="no_file">Aucune image sélectionnée</string>
+    <string name="enter_description">Entrez une description</string>
 </resources>

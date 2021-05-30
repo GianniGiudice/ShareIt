@@ -25,6 +25,7 @@ class UploadActivity : AppCompatActivity() {
     private lateinit var mEditTextFileName: EditText;
     private lateinit var mImageView: ImageView;
     private var mImageUri: Uri = EMPTY;
+    private lateinit var mEditTextFileDescription: EditText;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.upload)
@@ -42,6 +43,7 @@ class UploadActivity : AppCompatActivity() {
             uploadFile()
             //}
         })
+        mEditTextFileDescription = findViewById(R.id.edit_text_file_description)
     }
 
     private fun openFileChooser() {
@@ -81,7 +83,7 @@ class UploadActivity : AppCompatActivity() {
                     println("Upload $downloadUri")
                     Toast.makeText(this@UploadActivity, R.string.upload_success, Toast.LENGTH_SHORT).show()
                     if (downloadUri != null) {
-                        val upload = Upload(mEditTextFileName.text.toString().trim { it <= ' ' }, downloadUri.toString())
+                        val upload = Upload(mEditTextFileName.text.toString().trim { it <= ' ' }, downloadUri.toString(),mEditTextFileDescription.text.toString().trim { it <= ' ' })
                         val key = mDatabaseRef.push().key
                         println("uploadId $key")
                         if (key != null) {
