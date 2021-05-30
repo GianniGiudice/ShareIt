@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/activity1"
-        android:title="Home"
+        android:title="@string/home_menu"
         app:showAsAction="never"/>
     <item android:id="@+id/activity2"
-        android:title="Upload"
+        android:title="@string/upload_menu"
         app:showAsAction="never"/>
     <item android:id="@+id/activity3"
-        android:title="Gallery uploaded"
+        android:title="@string/uploaded_menu"
         app:showAsAction="never"/>
 </menu>

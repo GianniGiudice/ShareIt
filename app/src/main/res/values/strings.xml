@@ -19,4 +19,7 @@
     <string name="upload_fail">Problème lors du téléchargement</string>
     <string name="no_file">Aucune image sélectionnée</string>
     <string name="enter_description">Entrez une description</string>
+    <string name="home_menu">Accueil</string>
+    <string name="upload_menu">Télécharger</string>
+    <string name="uploaded_menu">Gallerie téléchargée</string>
 </resources>
