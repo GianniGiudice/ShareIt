@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -90,6 +93,27 @@ class HomeActivity : AppCompatActivity() {
             val intent: Intent = Intent(this, RegistrationActivity::class.java);
             startActivity(intent);
         }*/
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.nav_menu,menu)
+        return true;
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+             R.id.activity1 -> {
+                 val intent = Intent(this, HomeActivity::class.java)
+                 this.startActivity(intent)
+                 true;
+             }
+            R.id.activity2 -> {
+                val intent = Intent(this, UploadActivity::class.java)
+                this.startActivity(intent)
+                true;
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun handleFacebookToken(token: AccessToken) {

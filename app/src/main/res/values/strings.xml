@@ -6,8 +6,13 @@
     <string name="email">Email</string>
     <string name="nom">Nom</string>
     <string name="d_connexion">Déconnexion</string>
-    <string name="facebook_app_id">218801989757210</string> <string name="fb_login_protocol_scheme">fb218801989757210</string>
+    <string name="facebook_app_id">218801989757210</string>
+    <string name="fb_login_protocol_scheme">fb218801989757210</string>
     <string name="salut_tout_le_monde">Salut tout le monde</string>
     <string name="avatar">Avatar</string>
     <string name="profile">profile</string>
+    <string name="choose_file">Choose File</string>
+    <string name="enter_file_name">Enter file name</string>
+    <string name="show_uploads">Show Uploads</string>
+    <string name="upload">Upload</string>
 </resources>

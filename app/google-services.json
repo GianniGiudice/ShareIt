@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "853506935029",
-    "project_id": "shareit-7b511",
-    "storage_bucket": "shareit-7b511.appspot.com"
+    "project_number": "872578701111",
+    "firebase_url": "https://shareit-37c4e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "shareit-37c4e",
+    "storage_bucket": "shareit-37c4e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:853506935029:android:c6ee74fb8702a1132cddbc",
+        "mobilesdk_app_id": "1:872578701111:android:820fad4a0f94a2d1df6cb2",
         "android_client_info": {
           "package_name": "com.example.shareit"
         }
       },
       "oauth_client": [
         {
-          "client_id": "853506935029-pvpidockefpbud31qmgoo05q36gfr7bu.apps.googleusercontent.com",
+          "client_id": "872578701111-gufji9fboapsdcim387r9ksnjmphsvn2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAIg9bcGqesCwQpv8R0-KhZR0Dk_CwcTxc"
+          "current_key": "AIzaSyC9AiXplBTurTBtILHbMWjs5ReyWEkDxOQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "853506935029-pvpidockefpbud31qmgoo05q36gfr7bu.apps.googleusercontent.com",
+              "client_id": "872578701111-gufji9fboapsdcim387r9ksnjmphsvn2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
