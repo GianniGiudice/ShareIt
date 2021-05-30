@@ -6,10 +6,13 @@
     <string name="email">Email</string>
     <string name="nom">Nom</string>
     <string name="d_connexion">Déconnexion</string>
-    <string name="facebook_app_id">218801989757210</string> <string name="fb_login_protocol_scheme">fb218801989757210</string>
+    <string name="facebook_app_id">218801989757210</string>
+    <string name="fb_login_protocol_scheme">fb218801989757210</string>
     <string name="salut_tout_le_monde">Salut tout le monde</string>
     <string name="avatar">Avatar</string>
     <string name="profile">profile</string>
     <string name="welcome_intro">Bienvenue sur ShareIt</string>
-    <string name="welcome_text">ShareIt est une application de partage de photos. Pas besoin d\'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)</string>
+    <string name="welcome_text">ShareIt est une application de partage de photos. Inscrivez-vous simplement avec Facebook ! ;)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

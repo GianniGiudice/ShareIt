@@ -24,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var mText: TextView;
     lateinit var mPar: TextView;
     lateinit var mPicture: ImageView;
+    lateinit var mSend: ImageView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
@@ -37,10 +38,11 @@ class HomeActivity : AppCompatActivity() {
         mText = findViewById(R.id.home_text);
         mPar = findViewById(R.id.home_par);
         mPicture = findViewById(R.id.image_logo);
+        mSend = findViewById(R.id.send);
 
         if (auth.currentUser != null) {
-            mText.text = auth.currentUser!!.displayName;
-            mPar.text = "";
+            mText.text = "Bienvenue " + auth.currentUser!!.displayName;
+            mPar.text = "Envoyez directement des photos à vos amis ! :)";
         }
 
         loginBtn.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -118,18 +120,20 @@ class HomeActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            mText.text = user.displayName;
-            mPar.text = "";
+            mText.text = "Bienvenue " + user.displayName;
+            mPar.text = "Envoyez directement des photos à vos amis ! :)";
             if (user.photoUrl != null) {
                 var photoUrl: String = user.photoUrl.toString();
                 photoUrl = "$photoUrl?type=large";
                 Picasso.get().load(photoUrl).into(mPicture);
+                Picasso.get().load(R.drawable.send).into(mSend);
             }
         }
         else {
-            mText.text = "Bienvenue";
+            mText.text = "Bienvenue sur ShareIt";
             mPar.text =  "ShareIt est une application de partage de photos. Pas besoin d\\'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)";
-            mPicture.setImageResource(0);
+            mPicture.setImageResource(R.drawable.shareitlogo);
+            mSend.setImageResource(0);
         }
     }
 
