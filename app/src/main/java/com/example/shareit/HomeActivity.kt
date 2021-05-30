@@ -22,6 +22,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var accessTokenTraker: AccessTokenTracker;
     lateinit var loginBtn: LoginButton;
     lateinit var mText: TextView;
+    lateinit var mPar: TextView;
     lateinit var mPicture: ImageView;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +35,12 @@ class HomeActivity : AppCompatActivity() {
         loginBtn = findViewById(R.id.login_button);
         loginBtn.setReadPermissions("email", "public_profile");
         mText = findViewById(R.id.home_text);
+        mPar = findViewById(R.id.home_par);
         mPicture = findViewById(R.id.image_logo);
 
         if (auth.currentUser != null) {
             mText.text = auth.currentUser!!.displayName;
+            mPar.text = "";
         }
 
         loginBtn.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -116,6 +119,7 @@ class HomeActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             mText.text = user.displayName;
+            mPar.text = "";
             if (user.photoUrl != null) {
                 var photoUrl: String = user.photoUrl.toString();
                 photoUrl = "$photoUrl?type=large";
@@ -124,6 +128,7 @@ class HomeActivity : AppCompatActivity() {
         }
         else {
             mText.text = "Bienvenue";
+            mPar.text =  "ShareIt est une application de partage de photos. Pas besoin d\\'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)";
             mPicture.setImageResource(0);
         }
     }

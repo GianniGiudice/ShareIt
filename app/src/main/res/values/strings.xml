@@ -10,4 +10,6 @@
     <string name="salut_tout_le_monde">Salut tout le monde</string>
     <string name="avatar">Avatar</string>
     <string name="profile">profile</string>
+    <string name="welcome_intro">Bienvenue sur ShareIt</string>
+    <string name="welcome_text">ShareIt est une application de partage de photos. Pas besoin d\'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)</string>
 </resources>
