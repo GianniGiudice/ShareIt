@@ -18,16 +18,14 @@ class RecyclerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recycler)
-
-
-        val storage = FirebaseStorage.getInstance()
-        val storageRef = storage.getReference("uploads")
+        
+        val storageRef = FirebaseStorage.getInstance().getReference("uploads")
         val imageList: ArrayList<Image> = ArrayList()
 
         val listAllTask: Task<ListResult> = storageRef.listAll()
         listAllTask.addOnCompleteListener { result ->
             val items: List<StorageReference> = result.result!!.items
-            //add cycle for add image url to list
+
             items.forEachIndexed { index, item ->
                 item.downloadUrl.addOnSuccessListener {
                     Log.d("item", "$it")
