@@ -15,4 +15,7 @@
     <string name="enter_file_name">Enter file name</string>
     <string name="show_uploads">Show Uploads</string>
     <string name="upload">Upload</string>
+    <string name="upload_success">Image téléchargée</string>
+    <string name="upload_fail">Problème lors du téléchargement</string>
+    <string name="no_file">Aucune image sélectionnée</string>
 </resources>

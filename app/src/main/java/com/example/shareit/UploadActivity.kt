@@ -2,6 +2,7 @@ package com.example.shareit
 
 import android.content.Intent
 import android.net.Uri
+import android.net.Uri.EMPTY
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -23,7 +24,7 @@ class UploadActivity : AppCompatActivity() {
     private lateinit var mButtonUpload: Button;
     private lateinit var mEditTextFileName: EditText;
     private lateinit var mImageView: ImageView;
-    private lateinit var mImageUri: Uri;
+    private var mImageUri: Uri = EMPTY;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.upload)
@@ -65,7 +66,7 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun uploadFile() {
-        if (mImageUri != null) {
+        if (mImageUri != EMPTY) {
             val fileReference = mStorageRef.child(System.currentTimeMillis()
                 .toString() + "." + getFileExtension(mImageUri))
             var mUploadTask : UploadTask = fileReference.putFile(mImageUri)
@@ -78,7 +79,7 @@ class UploadActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val downloadUri = task.result
                     println("Upload $downloadUri")
-                    Toast.makeText(this@UploadActivity, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UploadActivity, R.string.upload_success, Toast.LENGTH_SHORT).show()
                     if (downloadUri != null) {
                         val upload = Upload(mEditTextFileName.text.toString().trim { it <= ' ' }, downloadUri.toString())
                         val key = mDatabaseRef.push().key
@@ -90,11 +91,11 @@ class UploadActivity : AppCompatActivity() {
                         }
                     }
                 } else {
-                    Toast.makeText(this@UploadActivity, "Problem occured", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@UploadActivity, R.string.upload_fail, Toast.LENGTH_SHORT).show()
                 }
             }
         } else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.no_file, Toast.LENGTH_SHORT).show()
         }
     }
 
