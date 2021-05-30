@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.shareit">
 
     <application
@@ -10,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareIt">
         <activity android:name=".HomeActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SendImageActivity" />
+        <activity android:name=".AppareilPhoto">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,7 +30,12 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
-
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="23" />
-
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30"
+        tools:ignore="GradleOverrides" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>
