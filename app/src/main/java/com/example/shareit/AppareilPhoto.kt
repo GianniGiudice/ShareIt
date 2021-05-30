@@ -28,6 +28,7 @@ class AppareilPhoto : AppCompatActivity() {
     private lateinit var binding: ActivityAppareilphotoBinding
     private var imageCapture:ImageCapture?=null
     private lateinit var outputDirectory: File
+    lateinit var pictureDirectory:Uri
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,6 +49,10 @@ class AppareilPhoto : AppCompatActivity() {
         }
         binding.btnTakePhoto.setOnClickListener{
             takePhoto()
+            Toast.makeText(this@AppareilPhoto, "$outputDirectory", Toast.LENGTH_LONG).show()
+            /*val intent = Intent(this, SendImageActivity::class.java)
+            intent.putExtra("pictureDirectory", pictureDirectory);
+            startActivity(intent)*/
         }
     }
 
@@ -76,7 +81,8 @@ class AppareilPhoto : AppCompatActivity() {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "photo saved"
-                    Toast.makeText(this@AppareilPhoto, "$msg $savedUri", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this@AppareilPhoto, "$msg $savedUri", Toast.LENGTH_LONG).show()
+                    pictureDirectory = Uri.fromFile(photoFile)
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -86,6 +92,7 @@ class AppareilPhoto : AppCompatActivity() {
             }
 
         )
+
     }
 
     private fun startCamera(){
@@ -132,15 +139,12 @@ class AppareilPhoto : AppCompatActivity() {
 
     }
 
-
     private fun allPermissionGranted() =
         Constants.REQUIRED_PERMISSIONS.all{
             ContextCompat.checkSelfPermission(
                 baseContext, it
             ) == PackageManager.PERMISSION_GRANTED
         }
-
-
 
 }
 
