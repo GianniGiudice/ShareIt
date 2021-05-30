@@ -83,18 +83,10 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
-        /*val logButton: Button = findViewById(R.id.login);
-        val regButton: Button = findViewById(R.id.registration);
-
-        logButton.setOnClickListener {
-            val intent: Intent = Intent(this, LoginActivity::class.java);
-            startActivity(intent);
+        mSend.setOnClickListener{
+            val intent = Intent(this, SnapActivity::class.java)
+            startActivity(intent)
         }
-
-        regButton.setOnClickListener {
-            val intent: Intent = Intent(this, RegistrationActivity::class.java);
-            startActivity(intent);
-        }*/
     }
 
     fun handleFacebookToken(token: AccessToken) {
@@ -131,7 +123,7 @@ class HomeActivity : AppCompatActivity() {
         }
         else {
             mText.text = "Bienvenue sur ShareIt";
-            mPar.text =  "ShareIt est une application de partage de photos. Pas besoin d\\'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)";
+            mPar.text =  "ShareIt est une application de partage de photos. Pas besoin d'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)";
             mPicture.setImageResource(R.drawable.shareitlogo);
             mSend.setImageResource(0);
         }
