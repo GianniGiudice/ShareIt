@@ -112,6 +112,11 @@ class HomeActivity : AppCompatActivity() {
                 this.startActivity(intent)
                 true;
             }
+            R.id.activity3 -> {
+                val intent = Intent(this, RecyclerActivity::class.java)
+                this.startActivity(intent)
+                true;
+            }
         }
         return super.onOptionsItemSelected(item)
     }
