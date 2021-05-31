@@ -48,7 +48,7 @@ class AppareilPhoto : AppCompatActivity() {
         }
         binding.btnTakePhoto.setOnClickListener{
             takePhoto()
-            //Toast.makeText(this@AppareilPhoto, "$outputDirectory", Toast.LENGTH_LONG).show()
+            Toast.makeText(this@AppareilPhoto, "$outputDirectory", Toast.LENGTH_LONG).show()
             val intent = Intent(this, SendImageActivity::class.java)
             //intent.putExtra("pictureDirectory", pictureDirectory);
             startActivity(intent)
@@ -59,10 +59,12 @@ class AppareilPhoto : AppCompatActivity() {
         val mediaDir = externalMediaDirs.firstOrNull()?.let {mFile ->
             File(mFile, resources.getString(R.string.app_name)).apply {
                 mkdirs()
-            }
+            }//mFile, resources.getString(R.string.app_name)
         }
+        Toast.makeText(this@AppareilPhoto, "$mediaDir", Toast.LENGTH_LONG).show()
         return if(mediaDir != null && mediaDir.exists())
-            mediaDir else filesDir
+            mediaDir
+        else filesDir
     }
 
     private fun takePhoto(){
@@ -80,7 +82,7 @@ class AppareilPhoto : AppCompatActivity() {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "photo saved"
-                    //Toast.makeText(this@AppareilPhoto, "$msg $savedUri", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@AppareilPhoto, "$msg $savedUri", Toast.LENGTH_LONG).show()
                 }
 
                 override fun onError(exception: ImageCaptureException) {
