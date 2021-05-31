@@ -2,8 +2,8 @@ package com.example.shareit
 
 class Upload {
     lateinit var name: String
-    private lateinit var imageUrl: String
-    private lateinit var description: String
+    lateinit var imageUrl: String
+    lateinit var description: String
     constructor() {
         // Vide
     }
