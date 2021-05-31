@@ -92,6 +92,10 @@ class UploadActivity : AppCompatActivity() {
                             mDatabaseRef.setValue(upload)
                         }
                     }
+                    mEditTextFileName.text = null
+                    mEditTextFileDescription.text = null
+                    mImageUri = EMPTY
+                    mImageView.setImageResource(android.R.color.transparent);
                 } else {
                     Toast.makeText(this@UploadActivity, R.string.upload_fail, Toast.LENGTH_SHORT).show()
                 }
