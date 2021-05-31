@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareIt">
-        <activity android:name=".SnapActivity" />
-        <activity android:name=".SendImageActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".activities.SnapActivity" />
+        <activity android:name=".activities.SendImageActivity" />
+        <activity android:name=".activities.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.media.action.IMAGE_CAPTURE" />

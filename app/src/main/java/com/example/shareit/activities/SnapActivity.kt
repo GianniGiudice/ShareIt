@@ -1,4 +1,4 @@
-package com.example.shareit
+package com.example.shareit.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +14,8 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.shareit.Constants
+import com.example.shareit.R
 import com.example.shareit.databinding.ActivitySnapBinding
 import java.io.File
 import java.text.SimpleDateFormat
@@ -65,7 +67,8 @@ class SnapActivity : AppCompatActivity() {
 
         val photoFile = File(
             outputDirectory,
-            SimpleDateFormat(Constants.FILE_NAME_FORMAT,
+            SimpleDateFormat(
+                Constants.FILE_NAME_FORMAT,
                 Locale.getDefault()).format(System.currentTimeMillis()) + ".jpg")
 
         val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
