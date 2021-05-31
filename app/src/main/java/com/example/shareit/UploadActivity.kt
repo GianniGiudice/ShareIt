@@ -6,7 +6,6 @@ import android.net.Uri.EMPTY
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -18,14 +17,14 @@ import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 
 class UploadActivity : AppCompatActivity() {
-    private lateinit var mStorageRef: StorageReference;
-    private lateinit var mDatabaseRef: DatabaseReference;
-    private lateinit var mButtonChooseImage: Button;
-    private lateinit var mButtonUpload: Button;
-    private lateinit var mEditTextFileName: EditText;
-    private lateinit var mImageView: ImageView;
-    private var mImageUri: Uri = EMPTY;
-    private lateinit var mEditTextFileDescription: EditText;
+    private lateinit var mStorageRef: StorageReference
+    private lateinit var mDatabaseRef: DatabaseReference
+    private lateinit var mButtonChooseImage: Button
+    private lateinit var mButtonUpload: Button
+    private lateinit var mEditTextFileName: EditText
+    private lateinit var mImageView: ImageView
+    private var mImageUri: Uri = EMPTY
+    private lateinit var mEditTextFileDescription: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.upload)
@@ -35,14 +34,14 @@ class UploadActivity : AppCompatActivity() {
         mImageView = findViewById(R.id.image_view)
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads")
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads")
-        mButtonChooseImage.setOnClickListener(View.OnClickListener { openFileChooser() })
-        mButtonUpload.setOnClickListener(View.OnClickListener {
+        mButtonChooseImage.setOnClickListener { openFileChooser() }
+        mButtonUpload.setOnClickListener {
             /*if (mUploadTask != null && mUploadTask!!.isInProgress) {
                 Toast.makeText(this@MainActivity, "Upload already in progress", Toast.LENGTH_SHORT).show()
             } else {*/
             uploadFile()
             //}
-        })
+        }
         mEditTextFileDescription = findViewById(R.id.edit_text_file_description)
     }
 
@@ -71,7 +70,7 @@ class UploadActivity : AppCompatActivity() {
         if (mImageUri != EMPTY) {
             val fileReference = mStorageRef.child(System.currentTimeMillis()
                 .toString() + "." + getFileExtension(mImageUri))
-            var mUploadTask : UploadTask = fileReference.putFile(mImageUri)
+            val mUploadTask : UploadTask = fileReference.putFile(mImageUri)
             mUploadTask.continueWithTask { task ->
                 if (!task.isSuccessful) {
                     throw task.exception!!
@@ -85,13 +84,17 @@ class UploadActivity : AppCompatActivity() {
                     if (downloadUri != null) {
                         val upload = Upload(mEditTextFileName.text.toString().trim { it <= ' ' }, downloadUri.toString(),mEditTextFileDescription.text.toString().trim { it <= ' ' })
                         val key = mDatabaseRef.push().key
-                        println("uploadId $key")
                         if (key != null) {
                             mDatabaseRef.child(key).setValue(upload)
                         } else {
                             mDatabaseRef.setValue(upload)
                         }
                     }
+                    mEditTextFileName.text = null
+                    mEditTextFileDescription.text = null
+                    mImageView.setImageResource(android.R.color.transparent)
+                    mImageUri = EMPTY
+                    mEditTextFileName.requestFocus()
                 } else {
                     Toast.makeText(this@UploadActivity, R.string.upload_fail, Toast.LENGTH_SHORT).show()
                 }
@@ -107,7 +110,7 @@ class UploadActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.nav_menu,menu)
-        return true;
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -115,17 +118,14 @@ class UploadActivity : AppCompatActivity() {
             R.id.activity1 -> {
                 val intent = Intent(this, HomeActivity::class.java)
                 this.startActivity(intent)
-                true;
             }
             R.id.activity2 -> {
                 val intent = Intent(this, UploadActivity::class.java)
                 this.startActivity(intent)
-                true;
             }
             R.id.activity3 -> {
                 val intent = Intent(this, RecyclerActivity::class.java)
                 this.startActivity(intent)
-                true;
             }
         }
         return super.onOptionsItemSelected(item)

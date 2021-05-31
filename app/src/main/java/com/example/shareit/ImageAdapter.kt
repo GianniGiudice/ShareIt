@@ -1,38 +1,40 @@
 package com.example.shareit
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class ImageAdapter (private var images:List<Image>, private val context: Context):
-    RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+class CustomAdapter(private var images:List<Image>):
+    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(context).inflate(
+        val view = LayoutInflater.from(parent.context).inflate(
                 R.layout.image,
                 parent,
                 false
             )
-        )
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
         return images.size
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val item = images[position]
-        Picasso.get().load(item.imageUrl).into(holder.imageView)
-    }
+        Picasso.get().load(item.imageUrl).into(viewHolder.imageView)
+        viewHolder.imageTitleView.text = item.name
+        viewHolder.imageDescriptionView.text = item.description    }
 
     class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imageView)
+        val imageTitleView: TextView = view.findViewById(R.id.imageTitleView)
+        val imageDescriptionView: TextView = view.findViewById(R.id.imageDescriptionView)
     }
 
 }
