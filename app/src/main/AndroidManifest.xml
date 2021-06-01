@@ -15,8 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareIt">
-        <activity android:name=".UploadActivity"></activity>
-        <activity android:name=".RecyclerActivity"></activity>
+        <activity android:name=".ImageDisplayActivity"></activity>
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".RecyclerActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>

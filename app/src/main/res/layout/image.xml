@@ -12,7 +12,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="224dp"
+        android:layout_width="225dp"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
@@ -20,7 +20,7 @@
         android:id="@+id/imageTitleView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="224dp"
+        android:layout_marginStart="225dp"
         android:paddingStart="5dp"
         android:textSize="20sp"
         android:fontFamily="@font/pattaya_regular"/>
@@ -28,10 +28,23 @@
     <TextView
         android:id="@+id/imageDescriptionView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="224dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="225dp"
         android:layout_marginTop="50dp"
-        android:paddingStart="5dp"
-        android:fontFamily="@font/dancing_script_regular"/>
+        android:fontFamily="@font/dancing_script_regular"
+        android:paddingStart="5dp" />
+
+    <TextView
+        android:id="@+id/imageAuteurView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="220dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/pattaya_regular"
+        android:hint="\@moi"
+        android:textAlignment="center"
+
+        android:paddingStart="5dp" />
 
 </androidx.cardview.widget.CardView>
