@@ -23,7 +23,7 @@
         android:layout_marginStart="224dp"
         android:paddingStart="5dp"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:fontFamily="@font/pattaya_regular"/>
 
     <TextView
         android:id="@+id/imageDescriptionView"
@@ -31,6 +31,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="224dp"
         android:layout_marginTop="50dp"
-        android:paddingStart="5dp"/>
+        android:paddingStart="5dp"
+        android:fontFamily="@font/dancing_script_regular"/>
 
 </androidx.cardview.widget.CardView>
