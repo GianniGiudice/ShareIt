@@ -22,10 +22,10 @@
         android:theme="@style/Theme.ShareIt">
         <activity android:name=".activities.SnapActivity" />
         <activity android:name=".activities.SendImageActivity" />
-        <activity android:name=".activities.HomeActivity">
-        <activity android:name=".ImageDisplayActivity"></activity>
-        <activity android:name=".UploadActivity" />
         <activity android:name=".RecyclerActivity" />
+        <activity android:name=".ImageDisplayActivity" />
+        <activity android:name=".UploadActivity" />
+        <activity android:name=".activities.HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.media.action.IMAGE_CAPTURE" />
@@ -37,7 +37,6 @@
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="30" />
 
     <uses-feature android:name="android.hardware.camera.any"/>
     <uses-permission android:name="android.permission.CAMERA"/>

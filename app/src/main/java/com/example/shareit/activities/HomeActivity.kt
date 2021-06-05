@@ -11,6 +11,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.shareit.R
+import com.example.shareit.RecyclerActivity
+import com.example.shareit.UploadActivity
 import com.example.shareit.databinding.HomeActivityBinding;
 import com.example.shareit.utils.activityViewBinding
 import com.facebook.*
