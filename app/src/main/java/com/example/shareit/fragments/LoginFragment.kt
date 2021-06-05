@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.shareit.R
+import com.example.shareit.databinding.HomeActivityBinding
+import com.example.shareit.utils.activityViewBinding
 
 class LoginFragment : Fragment() {
+    private val binding by activityViewBinding(LoginFragment::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
