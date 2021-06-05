@@ -15,4 +15,15 @@
     <string name="welcome_text">ShareIt est une application de partage de photos. Inscrivez-vous simplement avec Facebook ! ;)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_file">Choisissez un fichier</string>
+    <string name="enter_file_name">Entez un nom</string>
+    <string name="show_uploads">Show Uploads</string>
+    <string name="upload">Télécharger</string>
+    <string name="upload_success">Image téléchargée</string>
+    <string name="upload_fail">Problème lors du téléchargement</string>
+    <string name="no_file">Aucune image sélectionnée</string>
+    <string name="enter_description">Entrez une description</string>
+    <string name="home_menu">Accueil</string>
+    <string name="upload_menu">Télécharger</string>
+    <string name="uploaded_menu">Gallerie téléchargée</string>
 </resources>
