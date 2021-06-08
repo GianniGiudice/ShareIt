@@ -28,6 +28,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
     lateinit var firebaseAuthStateListener: FirebaseAuth.AuthStateListener
     lateinit var accessTokenTraker: AccessTokenTracker
+    lateinit var topMenu: Menu
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +65,11 @@ class HomeActivity : AppCompatActivity() {
             fun onAuthStateChanged(firebaseAuth: FirebaseAuth) {
                 val user: FirebaseUser? = firebaseAuth.currentUser
                 if (user != null) {
+                    menuInflater.inflate(R.menu.nav_menu, topMenu)
                     updateUI(user)
                 }
                 else {
+                    invalidateOptionsMenu()
                     updateUI(null)
                 }
             }
@@ -76,6 +79,7 @@ class HomeActivity : AppCompatActivity() {
             override fun onCurrentAccessTokenChanged(oldAT: AccessToken?, currentAT: AccessToken?) {
                 if (currentAT == null) {
                     updateUI(null)
+                    invalidateOptionsMenu()
                     auth.signOut()
                 }
             }
@@ -88,7 +92,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.nav_menu,menu)
+        if (menu != null) {
+            topMenu = menu
+        }
+        if (auth.currentUser != null) {
+            menuInflater.inflate(R.menu.nav_menu, menu)
+        }
         return true;
     }
 
@@ -118,11 +127,13 @@ class HomeActivity : AppCompatActivity() {
         auth.signInWithCredential(credential).addOnCompleteListener(this) { task: Task<AuthResult> ->
             if (task.isSuccessful) {
                 val user: FirebaseUser? = auth.currentUser
+                menuInflater.inflate(R.menu.nav_menu, topMenu)
                 updateUI(user)
             }
             else {
                 Log.d("Tag", "L'authentification a échoué.");
                 Toast.makeText(baseContext, "L'authentification a échoué.", Toast.LENGTH_SHORT).show()
+                invalidateOptionsMenu()
                 updateUI(null)
             }
         }
@@ -146,6 +157,7 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         else {
+            invalidateOptionsMenu()
             binding.homeText.text = "Bienvenue sur ShareIt"
             binding.homePar.text =  "ShareIt est une application de partage de photos. Pas besoin d'inscription, connectez-vous simplement avec votre compte Facebook pour commencer à utiliser notre application ! ;)"
             binding.imageLogo.setImageResource(R.drawable.shareitlogo)
