@@ -72,6 +72,7 @@ class UploadActivity : AppCompatActivity() {
         if (mImageUri != EMPTY) {
             val fileReference = mStorageRef.child(System.currentTimeMillis()
                 .toString() + "." + getFileExtension(mImageUri))
+            println(mImageUri)
             var mUploadTask : UploadTask = fileReference.putFile(mImageUri)
             mUploadTask.continueWithTask { task ->
                 if (!task.isSuccessful) {
