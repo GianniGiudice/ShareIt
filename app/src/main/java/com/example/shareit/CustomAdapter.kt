@@ -39,6 +39,8 @@ class CustomAdapter(private var images:List<Image>):
 
             val intent = Intent(it.context, ImageDisplayActivity::class.java)
             intent.putExtra("EXTRA_IMAGEVIEW_URL", item.imageUrl)
+            intent.putExtra("EXTRA_IMAGEVIEW_TITLE", item.name)
+            intent.putExtra("EXTRA_IMAGEVIEW_DESCRIPTION", item.description)
             it.context.startActivity(intent)
         }
     }

@@ -1,26 +1,26 @@
 package com.example.shareit.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.shareit.Constants.TAG
 import com.example.shareit.R
 import com.example.shareit.RecyclerActivity
 import com.example.shareit.UploadActivity
-import com.example.shareit.databinding.HomeActivityBinding;
+import com.example.shareit.databinding.HomeActivityBinding
 import com.example.shareit.utils.activityViewBinding
 import com.facebook.*
 import com.facebook.login.LoginResult
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*
 import com.squareup.picasso.Picasso
-import com.facebook.FacebookSdk;
+
 
 class HomeActivity : AppCompatActivity() {
     private val binding by activityViewBinding(HomeActivityBinding::inflate)
